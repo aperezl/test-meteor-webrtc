@@ -1,0 +1,41 @@
+<head>
+  <title>vc</title>
+</head>
+
+<body>
+  {{#if loggedIn}}
+    {{>MeteorVideoChat}}
+  {{else}}
+    {{>LoginPage}}
+    {{>loginButtons}}
+  {{/if}}
+</body>
+
+<template name="MeteorVideoChat">
+  <video style="width:250px; border: 1px solid red; position: absolute; right: 30px; top: 30px;" id="videoChatCallerVideo"></video>
+  <video style="width:100%; border: 1px solid red" id="videoChatAnswerVideo" poster="https://d13yacurqjgara.cloudfront.net/users/82092/screenshots/1073359/spinner.gif"></video>
+  <div style="position: absolute; top: 30px; ">
+    <ul>
+      <li><a id="answer_call">Answer</a></li>
+      <li><a id="ignore_call">Ignore</a></li>
+      <li><a id="close_call">Close</a></li>
+    </ul>
+
+    {{#if hasUsers}}
+      <ul>
+      {{#each getUsers}}
+         <li>{{check this}} - <button type="button" class="userIDLink btn btn-def btn-block">{{this.username}} ({{this.status}})</button></li>
+      {{/each}}
+      </ul>
+    {{else}}
+      - Empty -
+    {{/if}}
+  </div>
+</template>
+
+<template name="LoginPage">
+  <form id="loginForm">
+    <input class="form-control" type="text"  placeholder="username">
+    <button type="submit" class="btn btn-def btn-block">Login</button>
+  </form>
+</template>
