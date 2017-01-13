@@ -3,11 +3,11 @@
 </head>
 
 <body>
+  {{>loginButtons}}
   {{#if loggedIn}}
     {{>MeteorVideoChat}}
   {{else}}
     {{>LoginPage}}
-    {{>loginButtons}}
   {{/if}}
 </body>
 
