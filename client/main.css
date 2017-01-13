@@ -1,1 +1,11 @@
 /* CSS declarations go here */
+.skin-green {
+  height: 100%
+}
+
+.skin-green .wrapper{
+  height: 100%
+}
+.content-wrapper {
+  margin-right: 230px;
+}
